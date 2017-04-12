@@ -15,19 +15,25 @@ import Control.Monad.Eff(Eff)
 import Control.Monad.Eff.Console
 import Partial.Unsafe (unsafePartial)
 
-submitHandler :: ∀ eff
-               .  (Int → Eff ( console::CONSOLE, dom ∷ DOM | eff ) Unit )
+submitHandler ∷ ∀ eff
+               . (Int → Eff ( console ∷ CONSOLE, dom ∷ DOM | eff ) Unit)
                → Event
-               → Eff ( console::CONSOLE, dom ∷ DOM | eff ) Unit
+               → Eff ( console∷ CONSOLE, dom∷ DOM | eff ) Unit
 submitHandler setCounter e = do
   void $ preventDefault e
   let value = (unsafeCoerce e).target.number.value
   case value of
-       "" -> log "Empty value"
-       _ -> do setCounter $ unsafePartial $ fromJust $ fromString value
+       "" → log "Empty value"
+       _  → do setCounter $ unsafePartial $ fromJust $ fromString value
                reset $ (unsafeCoerce e).target
 
-inputForm :: ∀t7. ReactClass { setCounter ∷ Int -> Eff ( console:: CONSOLE, dom :: DOM, props :: ReactProps , refs :: ReactRefs ( read :: Read ) , state :: ReactState ( read :: Read , write :: Write ) | t7 ) Unit }
+inputForm ∷ ∀eff
+            . ReactClass { setCounter ∷ Int
+                                      → Eff (console ∷ CONSOLE,
+                                             dom ∷ DOM,
+                                             props ∷ ReactProps ,
+                                             refs ∷ ReactRefs (read ∷ Read) ,
+                                             state ∷ ReactState (read ∷ Read , write ∷ Write) | eff) Unit }
 inputForm = createClassStateless $ \props -> form
             [onSubmit (\e -> submitHandler props.setCounter e)]
             [
