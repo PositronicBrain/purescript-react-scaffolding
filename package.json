@@ -1,23 +1,35 @@
 {
   "name": "example-purescript-react-app",
   "version": "0.0.1",
-  "description": "pulp init",
-  "main": "index.js",
+  "description": "Scaffolding for an app using purescript and react",
   "directories": {
     "test": "test"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
-    "browserify": "^14.3.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "browserify": "^14.3.0",
     "node-sass": "^4.5.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "psc-package build && psc-bundle output/**/*.js -m Main --main Main | ./node_modules/.bin/browserify - > app.js"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "purescript",
+    "react"
+  ],
+  "contributors": [
+    {
+      "name": "Federico Squartini",
+      "email": "federico.squartini@gmail.com"
+    },
+    {
+      "name": "Nicola Squartini",
+      "email": "tensor5@gmail.com"
+    }
+  ],
+  "license": "MIT"
 }
