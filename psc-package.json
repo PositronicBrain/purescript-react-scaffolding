@@ -1,15 +1,15 @@
 {
-    "name": "example-purescript-react-app",
-    "set": "psc-0.11.3",
-    "source": "https://github.com/purescript/package-sets.git",
-    "depends": [
-        "react-dom",
-        "react",
-        "dom",
-        "quickcheck",
-        "psci-support",
-        "console",
-        "eff",
-        "prelude"
-    ]
+  "name": "example-purescript-react-app",
+  "set": "psc-0.11.3",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "react-dom",
+    "react",
+    "dom",
+    "quickcheck",
+    "psci-support",
+    "console",
+    "eff",
+    "prelude"
+  ]
 }
