@@ -1,7 +1,6 @@
 module Display where
-import Control.Monad.Eff.Console
 import Prelude (show)
-import React
+import React(ReactClass, createClassStateless)
 import React.DOM
 import React.DOM.Props as P
 
