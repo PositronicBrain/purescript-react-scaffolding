@@ -27,6 +27,6 @@ displayStyle = {
   fontSize: "40px"
 }
 
-display ∷ ∀t. ReactClass { counter ∷ Int | t }
+display ∷ ∀ t. ReactClass { counter ∷ Int | t }
 display = createClassStateless \props -> div [P.style displayStyle, P.className "mx-auto"]
                                              [text (show props.counter)]

@@ -16,11 +16,11 @@ initialState = { counter: 0 }
 
 setCounterf ∷ ∀ props eff t8. ReactThis props AppState
             → Int
-            → Eff ( state ∷ ReactState ( write :: Write | t8 ) | eff ) Unit
+            → Eff (state ∷ ReactState (write ∷ Write | t8) | eff) Unit
 setCounterf ctx x = do
   void $ writeState ctx ( { counter: x })
 
-app :: ∀ props. ReactClass props
+app ∷ ∀ props. ReactClass props
 app = createClass $ spec initialState \ctx -> do
    state ← readState ctx
    pure $ div [ className "container" ]

@@ -27,7 +27,7 @@ submitHandler setCounter e = do
        _  → do setCounter $ unsafePartial $ fromJust $ fromString value
                reset $ (unsafeCoerce e).target
 
-inputForm ∷ ∀eff
+inputForm ∷ ∀ eff
             . ReactClass { setCounter ∷ Int
                                       → Eff (console ∷ CONSOLE,
                                              dom ∷ DOM,
