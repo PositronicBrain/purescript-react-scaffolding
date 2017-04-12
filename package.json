@@ -15,6 +15,7 @@
     "node-sass": "^4.5.2"
   },
   "scripts": {
+    "build_css": "node-sass node_modules/bootstrap/scss/bootstrap.scss > style.css",
     "build": "psc-package build && psc-bundle output/**/*.js -m Main --main Main | ./node_modules/.bin/browserify - > app.js"
   },
   "keywords": [
